@@ -1,8 +1,8 @@
 production:
   adapter: postgresql
   encoding: unicode
-  database: contactbook_production
-  username: contactbook
-  password: contactbook
+  database: urlshortner_production
+  username: urlshortner
+  password: urlshortner
   host: localhost
   port: 5432
