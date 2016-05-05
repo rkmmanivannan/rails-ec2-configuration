@@ -1,0 +1,54 @@
+sudo apt-get update && sudo apt-get -y upgrade
+
+
+sudo useradd -d /home/deploy -m deploy
+
+
+sudo passwd deploy
+
+
+deploy ALL=(ALL:ALL) ALL
+
+
+su - deploy
+ssh-keygen
+
+cat .ssh/id_rsa.pub
+
+nano .ssh/authorized_keys
+
+sudo apt-get install git
+
+sudo nano /etc/nginx/sites-available/default
+
+sudo apt-get install postgresql postgresql-contrib libpq-dev
+
+
+sudo -u postgres createuser -s urlshortner
+
+sudo -u postgres psql
+
+postgres=# \password urlshortner
+
+
+sudo -u postgres createdb -O urlshortner urlshortner_production
+
+
+su - deploy
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+\curl -sSL https://get.rvm.io | bash -s stable
+
+
+
+rvm install 2.2.3
+
+
+gem install bundler --no-ri --no-rdoc
+
+
+mkdir urlshortner
+mkdir -p urlshortner/shared/config
+nano urlshortner/shared/config/database.yml
+
+
+nano urlshortner/shared/config/application.yml
