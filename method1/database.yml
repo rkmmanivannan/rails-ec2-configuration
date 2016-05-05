@@ -1,0 +1,8 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: contactbook_production
+  username: contactbook
+  password: contactbook
+  host: localhost
+  port: 5432
